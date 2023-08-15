@@ -7,6 +7,7 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	scroll-behavior: smooth;
 	text-decoration: none;
 	list-style: none;
 }
@@ -22,7 +23,7 @@ h5 {
 	position: relative;
 	width: 100%;
 	height: 100vh;
-	background: url(img/_portpicbw.jpg) center/cover no-repeat;
+	background: linear-gradient(to bottom, rgba(22, 22, 22, 0.3) 0%, rgba(22, 22, 22, 0.7) 75%, #161616 100%), url(img/_portpicbw.jpg) center/cover no-repeat;
 }
 
 .overlay {
@@ -31,9 +32,17 @@ h5 {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background-color: rgba(0, 0, 0, 0.8);
 	z-index: 1;
 }
+
+.trans-bg:hover .overlay {
+	background-color: transparent;
+}
+
+.trans-bg:hover .projects {
+	background-color: #333;
+}
+
 
 .content-container {
 	position: absolute;
@@ -96,7 +105,7 @@ nav {
 }
 
 #projects {
-	background-color: #000;
+	background: #161616;
 	color: #fff;
 	height: 100vh;
 	width: 100%;
@@ -107,7 +116,7 @@ nav {
 /*experiment*/
 #projects .heading div {
 	z-index: 1;
-	background: #000;
+	background: #161616;
 	border-top-left-radius: 8px;
 	position: relative;
 	height: 90px;
@@ -131,15 +140,15 @@ nav {
 #projects .heading::before {
 	content: "";
 	position: absolute;
-	width: 80px;
-	height: 80px;
+	width: 44px;
+	height: 34px;
 	background: linear-gradient(135deg, rgb(94, 69, 145) 0%, rgb(208, 212, 56) 50%, rgb(94, 69, 145) 100%);
 	opacity: 1;
 	border-top-left-radius: 8px;
 	transition: all .3s ease-in-out;
 	top: -2px;
+	bottom: 0;
 	left: -2px;
-	padding-left: 5px;
 }
 
 #projects .heading:hover:before {
@@ -159,19 +168,65 @@ nav {
 }
 
 .fancy-border {
-	padding: 10px;
-	display: inline-block;
 	z-index: 7;
 	text-align: start;
 	align-items: flex-start;
 	position: absolute;
 	max-height: 40px;
+	padding-left: 2px;
 }
 
 
 .fancy-border h4 {
 	display: flex;
 	font-size: 1.6rem
+}
+
+
+.card-container {
+	max-width: 70%;
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+}
+
+.card {
+	max-width: 200px;
+}
+
+.card-img {
+	max-height: 150px;
+	border-radius: 15px;
+}
+
+.card {
+	display: flex;
+	flex-direction: column;
+	padding: 10px;
+	align-items: center;
+}
+
+.pro-title {
+	position: relative;
+	margin: 10px 0;
+	padding: 5px;
+	text-align: center;
+}
+
+.pro-title::after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	background-image: linear-gradient(135deg, rgb(94, 69, 145) 0%, rgb(208, 212, 56) 50%, rgb(94, 69, 145) 100%);
+}
+
+#resume {
+	background: #161616;
+	height: 100vh;
+	width: 100%;
 }
 
 @media only screen and (max-width:510px) {
