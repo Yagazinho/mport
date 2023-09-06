@@ -381,6 +381,119 @@ span {
 	padding: 10px 0;
 }
 
+.testimonial {
+	padding: 100px 0;
+}
+
+.testimonial .heading h4 {
+	justify-content: center;
+	display: flex;
+	color: #fff;
+}
+
+.left-test,
+.right-test {
+	display: flex;
+}
+
+.block-test {
+	background-color: #333;
+	color: rgba(255, 255, 255, 0.4);
+	font-size: 0.8rem;
+	padding: 10px;
+	border-radius: 15px;
+	line-height: 1.7;
+}
+
+.block-image {
+	display: block;
+	margin-right: 10px;
+}
+
+.b-img {
+	width: 35px;
+	height: 35px;
+	border-radius: 50%;
+	object-fit: cover;
+}
+
+.test-container {
+	max-width: 70%;
+	width: 100%;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 20px;
+	padding: 50px 0;
+}
+
+.ref {
+	padding: 15px 0;
+}
+
+p.ref a {
+	color: #66cc00;
+	font-style: italic;
+	font-weight: 400;
+}
+
+.services .heading h4 {
+	justify-content: center;
+	display: flex;
+	color: #fff;
+}
+
+.services h5 {
+	font-size: 0.8rem;
+	color: #fff;
+	padding: 10px 0;
+}
+
+.services p {
+	padding-bottom: 10px;
+}
+
+.services span {
+	text-transform: uppercase;
+}
+
+.services span:hover {
+	color: #66cc00;
+	cursor: pointer;
+}
+
+.scard {
+	background-color: #333;
+	color: rgba(255, 255, 255, 0.4);
+	max-width: 300px;
+	width: 100%;
+	padding: 20px;
+}
+
+.center {
+	text-align: center;
+	display: flex;
+	justify-content: space-evenly;
+	padding: 100px 0;
+}
+
+.svg-cont {
+	background: #66cc00;
+	width: 60px;
+	height: 60px;
+	padding: 20px;
+	margin: 0 auto;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.svgicon {
+	height: 30px;
+	width: 30px;
+}
+
 @media only screen and (max-width:790px) {
 	.about-img {
 		display: none;
