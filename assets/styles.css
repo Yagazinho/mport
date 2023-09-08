@@ -494,6 +494,66 @@ p.ref a {
 	width: 30px;
 }
 
+.site-form {
+	width: 100%;
+	max-width: 60%;
+}
+
+.contact-details {
+	width: 100%;
+	max-width: 35%;
+}
+
+.form-group {
+	margin-bottom: 1rem;
+}
+
+.form-control {
+	border: none;
+	background-color: #333;
+	color: #fff;
+	padding: 1rem 1rem;
+	display: block;
+	line-height: 1.7;
+	width: 100%;
+	font-size: 1rem;
+	border-radius: 0.25rem;
+}
+
+input:focus {
+	border: none;
+	outline: none;
+	background-color: #4c4c4c;
+}
+
+textarea:focus {
+	border: none;
+	outline: none;
+	background-color: #4c4c4c;
+}
+
+/*to hide up and dwn arrows on number input*/
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-clear-button {
+	-webkit-appearance: none;
+	appearance: none;
+}
+
+.btn-primary {
+	background-color: #000;
+	color: #66cc00;
+	border-radius: 0;
+	border: none;
+	padding: 10px;
+}
+
+.btn-primary:hover,
+.btn-primary:active {
+	background-color: #66cc00;
+	color: #000;
+}
+
 @media only screen and (max-width:790px) {
 	.about-img {
 		display: none;
