@@ -558,6 +558,29 @@ input[type="number"]::-webkit-clear-button {
 	.about-img {
 		display: none;
 	}
+
+	.resume-columns {
+		display: block;
+	}
+
+	.left-test,
+	.right-test {
+		margin: 1.2rem 0;
+	}
+
+	.test-container {
+		display: block;
+	}
+
+	.center {
+		display: block;
+		width: 100%;
+		align-content: center;
+	}
+
+	.scard {
+		margin: 1.2rem auto;
+	}
 }
 
 @media only screen and (max-width:510px) {
