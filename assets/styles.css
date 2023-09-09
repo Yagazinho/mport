@@ -573,6 +573,13 @@ input[type="number"]::-webkit-clear-button {
 	justify-content: space-between;
 }
 
+#contact-heading {
+	color: #fff;
+	display: flex;
+	justify-content: center;
+	padding: 100px 0;
+}
+
 .text-uppercase {
 	color: var(--purple);
 	font-size: 16px;
@@ -586,7 +593,18 @@ input[type="number"]::-webkit-clear-button {
 		display: none;
 	}
 
-	.resume-columns {
+	#resume h5 {
+		font-size: 1.1rem;
+		padding: 20px 0;
+	}
+
+	.site-form,
+	.contact-details {
+		min-width: 100%;
+	}
+
+	.resume-columns,
+	#contact-det.d-flex {
 		display: block;
 	}
 
