@@ -200,7 +200,7 @@
 				<h4>Contact</h4>
 			</div>
 			<div class="d-flex" id="contact-det">
-				<form action="post" class="site-form">
+				<form action="" method="post" class="site-form">
 					<h3 class="heading">Get In Touch</h3>
 					<div class="form-group">
 						<input type="text" placeholder="Your Name" class="form-control">
