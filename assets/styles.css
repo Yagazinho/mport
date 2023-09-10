@@ -589,7 +589,24 @@ input[type="number"]::-webkit-clear-button {
 	margin-bottom: 10px;
 }
 
+#footer {
+	padding-top: 100px;
+}
+
+#footer p {
+	display: flex;
+	justify-content: center;
+	color: rgba(255, 255, 255, 0.4);
+}
+
+/*media queries*/
 @media only screen and (max-width:790px) {
+
+	.masthead {
+		font-size: 2rem;
+	}
+
+
 	.about-img {
 		display: none;
 	}
@@ -630,6 +647,7 @@ input[type="number"]::-webkit-clear-button {
 	}
 }
 
+
 @media only screen and (max-width:510px) {
 	nav {
 		position: relative;
@@ -660,9 +678,8 @@ input[type="number"]::-webkit-clear-button {
 	}
 
 	.nav-links.active {
-		opacity: 0.7;
 		background-color: #000;
-		top: 4px;
+		top: 0;
 	}
 
 	.nav-links li a {
@@ -679,8 +696,8 @@ input[type="number"]::-webkit-clear-button {
 	}
 
 	.masthead {
-		font-size: 2.0rem;
-		display: none;
+		font-size: 1.7rem;
+		letter-spacing: 3px;
 	}
 
 	.about-img {
