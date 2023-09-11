@@ -1,42 +1,7 @@
 <?php 
 
-include("includes/config.php");
+include("includes/logics.php");
 
-#logics
-if(isset($_POST['saveMsg'])){
-// collection and scrtinization of form data
-	$username = trim(stripslashes(mysqli_real_escape_string($con, $_POST['username'])));
-	$email = trim(stripslashes(mysqli_real_escape_string($con, $_POST['email'])));
-	$phone = trim(stripslashes(mysqli_real_escape_string($con, $_POST['phone'])));
-	$msg = trim(stripslashes(mysqli_real_escape_string($con, $_POST['msg'])));
-	
-//  validating the data
-if(empty($username)){
-	array_push($errs, $usernameErr = "You have to type name");
-}
-if(empty($email)){
-	array_push($errs, $emailError = "Field cannot be left empty");
-}
-if(empty($phone)){
-	array_push($errs, $phoneError = "Field cannot be left empty");
-}
-if(empty($msg)){
-	array_push($errs, $msgError = "Field cannot be left empty");
-}
-//	chcking for duplicates
-	if(checkDuplicate('messages', "msg='$msg'")){
-		array_push($errs, $msgExistError = ''); $emsg = "Message already exists, please modify";
-	}
-	
-//	saving message
-	if(count($errs) == 0){
-		if(mysqli_query($con, "INSERT INTO messages(username,email,phone,msg,dc) VALUES('$username','$email',$phone,'$msg',NOW())"));
-		$smsg = "dear '$username' your nessage has been sent";
-	}
-	else{
-		$emsg = "Something went wrong, Message could not be sent";
-	}
-}
 ?>
 
 
@@ -246,17 +211,20 @@ if(empty($msg)){
 				<form action="" method="post" class="site-form">
 					<h3 class="heading">Get In Touch</h3>
 					<div class="form-group">
-						<input type="text" name="username" placeholder="Your Name" class="form-control">
-						<span class="err-text"><?php if(isset($usernameErr)){echo $usernameErr;} ?></span>
+						<input type="text" name="userName" placeholder="Your Name *" class="form-control">
+						<span class="err-text"><?php if(isset($userNameErr)){echo $userNameErr;} ?></span>
 					</div>
 					<div class="form-group">
-						<input type="email" name="email" placeholder="Your email" class="form-control">
+						<input type="email" name="email" placeholder="Your email *" class="form-control">
+						<span class="err-text"><?php if(isset($emailErr)){echo $emailErr;} ?></span>
 					</div>
 					<div class="form-group">
 						<input type="number" name="phone" placeholder="Phone" class="form-control">
+						<span class="err-text"><?php if(isset($emailErr)){echo $emailErr;} ?></span>
 					</div>
 					<div class="form-group">
-						<textarea name="msg" placeholder="Write a Message" cols="30" rows="10" class="form-control"></textarea>
+						<textarea name="msg" placeholder="Write a Message *" cols="30" rows="10" class="form-control"></textarea>
+						<span class="err-text"><?php if(isset($msgErr)){echo $msgErr;} ?></span>
 					</div>
 					<div class="form-group">
 						<button type="submit" name="saveMsg" class="btn btn-primary">Send Message</button>

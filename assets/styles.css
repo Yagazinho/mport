@@ -16,8 +16,8 @@
 }
 
 span.err-text {
-	color: red;
-	background-color: #fff;
+	color: rgb(208, 212, 56);
+	font-size: 10px;
 }
 
 body {
