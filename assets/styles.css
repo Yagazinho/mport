@@ -2,7 +2,7 @@
 
 :root {
 	--purple: rgb(94, 69, 145);
-	--lem-green: rgb(208, 212, 56);
+	--lemgreen: rgb(208, 212, 56);
 }
 
 * {
@@ -13,6 +13,11 @@
 	text-decoration: none;
 	list-style: none;
 	font-family: Montserrat;
+}
+
+span.err-text {
+	color: red;
+	background-color: #fff;
 }
 
 body {

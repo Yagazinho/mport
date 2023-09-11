@@ -2,13 +2,27 @@
 
 include("includes/config.php");
 
+#logics
 if(isset($_POST['saveMsg'])){
 // collection and scrtinization of form data
-	$name = trim(stripslashes(mysqli_real_escape_string($con, $_POST['fname'])));
+	$username = trim(stripslashes(mysqli_real_escape_string($con, $_POST['username'])));
 	$email = trim(stripslashes(mysqli_real_escape_string($con, $_POST['email'])));
 	$phone = trim(stripslashes(mysqli_real_escape_string($con, $_POST['phone'])));
 	$msg = trim(stripslashes(mysqli_real_escape_string($con, $_POST['msg'])));
 	
+//  validating the data
+if(empty($username)){
+	array_push($errs, $usernameErr = "You have to type name");
+}
+if(empty($email)){
+	array_push($errs, $emailError = "Field cannot be left empty");
+}
+if(empty($phone)){
+	array_push($errs, $phoneError = "Field cannot be left empty");
+}
+if(empty($msg)){
+	array_push($errs, $msgError = "Field cannot be left empty");
+}
 //	chcking for duplicates
 	if(checkDuplicate('messages', "msg='$msg'")){
 		array_push($errs, $msgExistError = ''); $emsg = "Message already exists, please modify";
@@ -16,8 +30,8 @@ if(isset($_POST['saveMsg'])){
 	
 //	saving message
 	if(count($errs) == 0){
-		if(mysqli_query($con, "INSERT INTO messages(name,email,phone,msg,dc) VALUES('$name','$email',$phone,'$msg',NOW())"));
-		$smsg = "dear '$name' your nessage has been sent";
+		if(mysqli_query($con, "INSERT INTO messages(username,email,phone,msg,dc) VALUES('$username','$email',$phone,'$msg',NOW())"));
+		$smsg = "dear '$username' your nessage has been sent";
 	}
 	else{
 		$emsg = "Something went wrong, Message could not be sent";
@@ -232,7 +246,8 @@ if(isset($_POST['saveMsg'])){
 				<form action="" method="post" class="site-form">
 					<h3 class="heading">Get In Touch</h3>
 					<div class="form-group">
-						<input type="text" name="fname" placeholder="Your Name" class="form-control">
+						<input type="text" name="username" placeholder="Your Name" class="form-control">
+						<span class="err-text"><?php if(isset($usernameErr)){echo $usernameErr;} ?></span>
 					</div>
 					<div class="form-group">
 						<input type="email" name="email" placeholder="Your email" class="form-control">
@@ -271,7 +286,7 @@ if(isset($_POST['saveMsg'])){
 			swal({
 				text: "<?= $emsg.$smsg ?>",
 				buttons: false,
-				icon: "<?php if($smsg){echo 'success';}elseif($emsg){echo 'danger';} ?>",
+				icon: "<?php if($smsg){echo 'success';}elseif($emsg){echo 'error';} ?>",
 				timer: 5000
 			})
 		});
