@@ -1,3 +1,32 @@
+<?php 
+
+include("includes/config.php");
+
+if(isset($_POST['saveMsg'])){
+// collection and scrtinization of form data
+	$name = trim(stripslashes(mysqli_real_escape_string($con, $_POST['fname'])));
+	$email = trim(stripslashes(mysqli_real_escape_string($con, $_POST['email'])));
+	$phone = trim(stripslashes(mysqli_real_escape_string($con, $_POST['phone'])));
+	$msg = trim(stripslashes(mysqli_real_escape_string($con, $_POST['msg'])));
+	
+//	chcking for duplicates
+	if(checkDuplicate('messages', "msg='$msg'")){
+		array_push($errs, $msgExistError = ''); $emsg = "Message already exists, please modify";
+	}
+	
+//	saving message
+	if(count($errs) == 0){
+		if(mysqli_query($con, "INSERT INTO messages(name,email,phone,msg,dc) VALUES('$name','$email',$phone,'$msg',NOW())"));
+		$smsg = "dear '$name' your nessage has been sent";
+	}
+	else{
+		$emsg = "Something went wrong, Message could not be sent";
+	}
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +37,7 @@
 
 	<link rel="stylesheet" href="assets/font-awesome-4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="assets/styles.css">
-	<title>Sweet Portfolio Here</title>
+	<title>Portfolio Website</title>
 </head>
 
 <body>
@@ -203,19 +232,19 @@
 				<form action="" method="post" class="site-form">
 					<h3 class="heading">Get In Touch</h3>
 					<div class="form-group">
-						<input type="text" placeholder="Your Name" class="form-control">
+						<input type="text" name="fname" placeholder="Your Name" class="form-control">
 					</div>
 					<div class="form-group">
-						<input type="email" placeholder="Your email" class="form-control">
+						<input type="email" name="email" placeholder="Your email" class="form-control">
 					</div>
 					<div class="form-group">
-						<input type="number" placeholder="Phone" class="form-control">
+						<input type="number" name="phone" placeholder="Phone" class="form-control">
 					</div>
 					<div class="form-group">
-						<textarea name="" placeholder="Write a Message" cols="30" rows="10" class="form-control"></textarea>
+						<textarea name="msg" placeholder="Write a Message" cols="30" rows="10" class="form-control"></textarea>
 					</div>
 					<div class="form-group">
-						<button type="submit" name="" class="btn btn-primary">Send Message</button>
+						<button type="submit" name="saveMsg" class="btn btn-primary">Send Message</button>
 					</div>
 				</form>
 				<div class="contact-details">
@@ -232,7 +261,23 @@
 	<div id="footer" class="container">
 		<p>copyrght &copy; 2023 all rights reserved</p>
 	</div>
+	<script src="assets/jquery-3.js"></script>
+	<script src="assets/swal.js"></script>
 	<script src="assets/mport.js"></script>
+
+	<script type="text/javascript">
+		<?php if($smsg || $emsg): ?>
+		$(document).ready(function() {
+			swal({
+				text: "<?= $emsg.$smsg ?>",
+				buttons: false,
+				icon: "<?php if($smsg){echo 'success';}elseif($emsg){echo 'danger';} ?>",
+				timer: 5000
+			})
+		});
+		<?php endif?>
+
+	</script>
 
 </body>
 
