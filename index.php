@@ -211,19 +211,19 @@ include("includes/logics.php");
 				<form action="" method="post" class="site-form">
 					<h3 class="heading">Get In Touch</h3>
 					<div class="form-group">
-						<input type="text" name="userName" placeholder="Your Name *" class="form-control">
+						<input type="text" name="userName" placeholder="Your Name *" class="form-control" value="<?php if(isset($_POST['userName'])){ echo $_POST['userName'];} ?>">
 						<span class="err-text"><?php if(isset($userNameErr)){echo $userNameErr;} ?></span>
 					</div>
 					<div class="form-group">
-						<input type="email" name="email" placeholder="Your email *" class="form-control">
+						<input type="email" name="email" placeholder="Your email *" class="form-control" value="<?php if(isset($_POST['email'])){ echo $_POST['email'];} ?>">
 						<span class="err-text"><?php if(isset($emailErr)){echo $emailErr;} ?></span>
 					</div>
 					<div class="form-group">
-						<input type="number" name="phone" placeholder="Phone" class="form-control">
-						<span class="err-text"><?php if(isset($emailErr)){echo $emailErr;} ?></span>
+						<input type="number" name="phone" placeholder="Phone *" class="form-control" value="<?php if(isset($_POST['phone'])){ echo $_POST['phone'];} ?>">
+						<span class="err-text"><?php if(isset($phoneErr)){echo $phoneErr;} ?></span>
 					</div>
 					<div class="form-group">
-						<textarea name="msg" placeholder="Write a Message *" cols="30" rows="10" class="form-control"></textarea>
+						<textarea name="msg" placeholder="Write a Message *" cols="30" rows="10" class="form-control"><?php if(isset($_POST['msg'])){ echo $_POST['msg'];} ?></textarea>
 						<span class="err-text"><?php if(isset($msgErr)){echo $msgErr;} ?></span>
 					</div>
 					<div class="form-group">

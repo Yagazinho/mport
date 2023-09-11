@@ -30,11 +30,12 @@ if(empty($msg)){
 	
 //	saving message
 	if(count($errs) == 0){
-		if(mysqli_query($con, "INSERT INTO messages(username,email,phone,msg,dc) VALUES('$userName','$email',$phone,'$msg',NOW())"));
+		if(mysqli_query($con, "INSERT INTO messages(username,email,phone,msg,dc) VALUES('$userName','$email',$phone,'$msg',NOW())")){
 		$smsg = "dear $userName your message has been sent!";
-	}
-	else{
-		$emsg = "Something went wrong, Message could not be sent";
-	}
+		}
+		else{
+			$emsg = "Something went wrong, Message could not be sent ".mysqli_error($con);
+		}
+    }
 }
 ?>
