@@ -359,6 +359,10 @@ span {
 	font-weight: 200;
 }
 
+.btn{
+	cursor: pointer;
+}
+
 .btn-left {
 	background-color: #66cc00;
 	color: #161616;

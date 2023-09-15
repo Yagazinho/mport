@@ -122,7 +122,7 @@ include("includes/logics.php");
 					<p>what I find remarkable is that this text has been the industry's standard dummy text <br><br> ever since some printer in the 1500s took a galley of type and scrambled it to make a type specimen book; it has survived not</p>
 					<div class="button-group">
 						<button class="btn btn-left">Hire Me</button>
-						<button class="btn btn-right">Download cv</button>
+						<a href="assets/portrez.pdf" download class="btn btn-right">Download CV</a>
 					</div>
 				</div>
 			</div>
